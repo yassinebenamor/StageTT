@@ -2,29 +2,21 @@ pipeline {
     agent any
 
     stages {
+
         stage ('Compile Stage') {
 
             steps {
                 withMaven(maven : 'maven-latest') {
-                    sh 'mvn clean compile'
+                    echo "Maven compile";
+                    bat 'mvn compile';
                 }
             }
         }
-
-        stage ('Testing Stage') {
-
-            steps {
-                withMaven(maven : 'maven-latest') {
-                    sh 'mvn test'
-                }
-            }
-        }
-
-
         stage ('Deployment Stage') {
             steps {
                 withMaven(maven : 'maven-latest') {
-                    sh 'mvn deploy'
+                    echo "Maven Deploy";
+                    bat 'mvn Deploy';
                 }
             }
         }
