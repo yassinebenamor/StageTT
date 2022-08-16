@@ -15,8 +15,8 @@ pipeline {
         stage ('Deployment Stage') {
             steps {
                 withMaven(maven : 'maven-latest') {
-                    echo "Maven Deploy";
-                    bat 'mvn Deploy';
+                    echo "Maven deploy";
+                    bat 'mvn deploy';
                 }
             }
         }
